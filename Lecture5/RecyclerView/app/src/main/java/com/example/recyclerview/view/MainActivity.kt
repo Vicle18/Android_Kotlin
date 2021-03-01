@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), CustomAdapter.ViewHolderListener {
         layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager;
 
-        adapter = CustomAdapter();
+        adapter = CustomAdapter(this);
         adapter.setNumbers(viewModel.getNumbers().value!!);
         recyclerView.adapter = adapter;
 
@@ -35,8 +35,13 @@ class MainActivity : AppCompatActivity(), CustomAdapter.ViewHolderListener {
 
     }
 
+    override fun deleteNumberOnClick(position: Int) {
+        viewModel.deleteNumber(position);
+    }
 
-
+    override fun addNumberOnClick(position: Int, number: Int) {
+        viewModel.addNumber(position, number)
+    }
 
 
 }

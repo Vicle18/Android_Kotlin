@@ -11,9 +11,10 @@ import com.example.recyclerview.R
 import com.google.android.material.snackbar.Snackbar
 
 
-class CustomAdapter : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter : RecyclerView.Adapter<CustomAdapter.ViewHolder> {
     private lateinit var numbers: ArrayList<Number>;
-    private lateinit var removeButton: Button;
+
+    private val listener: ViewHolderListener;
 
     constructor(listener: ViewHolderListener) : super() {
         this.listener = listener
@@ -27,7 +28,9 @@ class CustomAdapter : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.view, viewGroup, false)
         val tv = v.findViewById<TextView>(R.id.textView2)
-        return ViewHolder(v, tv);
+        val vh = ViewHolder(v, tv)
+        vh.textView.setOnClickListener { v -> deleteNumber(vh.adapterPosition, v) }
+        return vh;
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
@@ -36,17 +39,27 @@ class CustomAdapter : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     override fun getItemCount() = numbers.size
 
-    class ViewHolder(frameLayout: View?, val textView: TextView) : RecyclerView.ViewHolder(frameLayout!!)
-
     fun deleteNumber(position: Int, v: View){
-        val message = String.format("Removing item at position: %s with value: %s", position,  numbers[position].value)
+        val message = String.format("Removing item")
         Log.i("CustomAdapter", message)
 
-        val number = numbers[position]
+        val number = numbers[position].toInt()
         val snack = Snackbar.make(v!!, message, Snackbar.LENGTH_LONG)
         snack.setAction("Undo") {
             listener.addNumberOnClick(position, number)
 
         }
+        snack.show()
+        listener.deleteNumberOnClick(position);
+        notifyDataSetChanged()
+    }
+
+    class ViewHolder(frameLayout: View?, val textView: TextView) : RecyclerView.ViewHolder(frameLayout!!)
+
+
+
+    interface ViewHolderListener {
+        fun deleteNumberOnClick(position: Int)
+        fun addNumberOnClick(position: Int, number: Int)
     }
 }

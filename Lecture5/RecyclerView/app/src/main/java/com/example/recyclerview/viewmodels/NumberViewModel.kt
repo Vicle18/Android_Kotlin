@@ -30,8 +30,18 @@ class NumberViewModel : ViewModel() {
         }
     }
 
-        fun getNumbers(): MutableLiveData<ArrayList<Number>> {
-            return numbers;
-        }
+    fun deleteNumber(position: Int){
+        numbers.value?.remove(position);
+        numbers.value = numbers.value;
+    }
+
+    fun addNumber(position: Int, number: Int){
+        numbers.value?.add(position, number);
+        numbers.value = numbers.value;
+    }
+
+    fun getNumbers(): MutableLiveData<ArrayList<Number>> {
+        return numbers;
+    }
 
 }
