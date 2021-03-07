@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     override fun onClick(v: View?) {
         if (button_blue.isPressed) {
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fl_fragment, fragment1)
+                replace(R.id.fl_fragment, fragment2)
                 addToBackStack(null)
                 commit()
 
@@ -66,6 +66,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                 commit()
             }
         } else if (button_green.isPressed) {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fl_fragment, fragment1)
+                addToBackStack(null)
+                commit()
+            }
 
         } else if (button_white.isPressed) {
 
