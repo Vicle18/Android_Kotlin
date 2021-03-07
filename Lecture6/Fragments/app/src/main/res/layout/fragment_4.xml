@@ -7,9 +7,9 @@
     tools:context=".Fragment2">
 
     <TextView
-        android:background="@android:color/holo_blue_dark"
-        android:id="@+id/fragment2"
-        android:text="Hello im Mr. Blue"
+        android:background="@android:color/white"
+        android:id="@+id/fragment4"
+        android:text="Hello im Mr. White"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

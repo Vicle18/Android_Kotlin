@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     private val manager = supportFragmentManager;
     val fragment1 = Fragment1();
     val fragment2 = Fragment2()
+    val fragment3 = Fragment3()
+    val fragment4 = Fragment4()
 
 
 
@@ -61,7 +63,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
             }
         } else if (button_red.isPressed) {
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fl_fragment, fragment2)
+                replace(R.id.fl_fragment, fragment3)
                 addToBackStack(null)
                 commit()
             }
@@ -73,11 +75,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
             }
 
         } else if (button_white.isPressed) {
-
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fl_fragment, fragment4)
+                addToBackStack(null)
+                commit()
+            }
         }
     }
-
-
 
 }
 
