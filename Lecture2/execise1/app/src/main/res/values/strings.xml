@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Multiple Activity App</string>
+    <string name="edit_birth">Birth</string>
+    <string name="edit_address">Address</string>
+    <string name="edit_name">Name</string>
+    <string name="name_button">Next</string>
+    <string name="address_button">Next</string>
+    <string name="birth_button">Next</string>
+</resources>
