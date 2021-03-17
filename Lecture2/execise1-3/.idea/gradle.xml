@@ -11,6 +11,10 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+<<<<<<< HEAD
+=======
+            <option value="$PROJECT_DIR$/app" />
+>>>>>>> 97e634804c43d2bd769cc864e84146722fdb64fe
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
